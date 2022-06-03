@@ -598,6 +598,49 @@
             </build>
         </profile>
 
+        <profile>
+            <id>checkerframework</id>
+            <activation>
+                <jdk>[1.8,)</jdk>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>3.10.1</version>
+                        <configuration>
+                            <fork>true</fork> <!-- Must fork or else JVM arguments are ignored. -->
+                            <compilerArguments>
+                                <Xmaxerrs>10000</Xmaxerrs>
+                                <Xmaxwarns>10000</Xmaxwarns>
+                            </compilerArguments>
+                            <annotationProcessorPaths>
+                                <path>
+                                    <groupId>org.checkerframework</groupId>
+                                    <artifactId>checker</artifactId>
+                                    <version>3.22.2-SNAPSHOT</version>
+                                </path>
+                            </annotationProcessorPaths>
+                            <annotationProcessors>
+                                <!-- Add all the checkers you want to enable here -->
+                                <annotationProcessor>org.checkerframework.checker.tainting.TaintingChecker</annotationProcessor>
+                            </annotationProcessors>
+                            <compilerArgs>
+                                <!-- <arg>-Awarns</arg> --> <!-- -Awarns turns type-checking errors into warnings. -->
+                            </compilerArgs>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+            <dependencies>
+                <dependency>
+                    <groupId>org.checkerframework</groupId>
+                    <artifactId>checker</artifactId>
+                    <version>3.22.2-SNAPSHOT</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
     </profiles>
 
     <dependencies>
@@ -827,6 +870,12 @@
             <groupId>xml-apis</groupId>
             <artifactId>xml-apis</artifactId>
             <version>1.4.01</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.checkerframework</groupId>
+            <artifactId>checker-qual</artifactId>
+            <version>3.22.2-SNAPSHOT</version>
         </dependency>
 
     </dependencies>
