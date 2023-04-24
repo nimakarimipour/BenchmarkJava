@@ -618,12 +618,17 @@
                                 <path>
                                     <groupId>org.checkerframework</groupId>
                                     <artifactId>checker</artifactId>
-                                    <version>3.22.2-SNAPSHOT</version>
+                                    <version>3.33.0</version>
+                                </path>
+                                <path>
+                                    <groupId>edu.ucr.cs.riple.taint</groupId>
+                                    <artifactId>ucrtainting-checker</artifactId>
+                                    <version>0.1</version>
                                 </path>
                             </annotationProcessorPaths>
                             <annotationProcessors>
                                 <!-- Add all the checkers you want to enable here -->
-                                <annotationProcessor>org.checkerframework.checker.tainting.TaintingChecker</annotationProcessor>
+                                <annotationProcessor>edu.ucr.cs.riple.taint.ucrtainting.UCRTaintingChecker</annotationProcessor>
                             </annotationProcessors>
                             <compilerArgs>
                                 <!-- <arg>-Awarns</arg> --> <!-- -Awarns turns type-checking errors into warnings. -->
@@ -636,7 +641,12 @@
                 <dependency>
                     <groupId>org.checkerframework</groupId>
                     <artifactId>checker</artifactId>
-                    <version>3.22.2-SNAPSHOT</version>
+                    <version>3.33.0</version>
+                </dependency>
+                <dependency>
+                    <groupId>edu.ucr.cs.riple.taint</groupId>
+                    <artifactId>ucrtainting-checker</artifactId>
+                    <version>0.1</version>
                 </dependency>
             </dependencies>
         </profile>
@@ -875,7 +885,19 @@
         <dependency>
             <groupId>org.checkerframework</groupId>
             <artifactId>checker-qual</artifactId>
-            <version>3.22.2-SNAPSHOT</version>
+            <version>3.33.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>edu.ucr.cs.riple.taint</groupId>
+            <artifactId>ucrtainting-checker</artifactId>
+            <version>0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>edu.ucr.cs.riple.taint</groupId>
+            <artifactId>ucrtainting-checker-qual</artifactId>
+            <version>0.1</version>
         </dependency>
 
     </dependencies>
